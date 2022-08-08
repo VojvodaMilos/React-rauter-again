@@ -7,21 +7,23 @@ import Pricing from "./components/Pricing";
 import Book from "./components/Book";
 import FeaturesId from "./components/FeaturesId";
 import NotFound from "./components/NotFound";
+import BookRouts from "./components/BookRouts";
+import "./components/style.css";
 
 // LINK VIDEA : https://www.youtube.com/watch?v=Ul3y1LXxzdU&t=19s
 
 function App() {
   return (
     <>
+      <Routes>
+        <Route path="/Features" element={<h1>Extra Content</h1>} />
+      </Routes>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Pricing" element={<Pricing />} />
-        <Route path="/Features" element={<Features />}>
-          {/* <Route index element={<Features />} /> */}
-          <Route path=":id" element={<Book />} />
-          <Route path="1" element={<FeaturesId />} />
-        </Route>
+        <Route path="/Features/*" element={<BookRouts />} /> //zbog
+        ugnjezdavanja Route stavimo /*
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
