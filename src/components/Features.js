@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 function Features() {
   return (
@@ -7,7 +7,8 @@ function Features() {
       <h2>Features</h2>
       <Link to={"/Features/1"}>IDFEATURE1</Link>
       <br />
-      <Link to={"/Features/2"}>IDFEATURE2</Link>
+      <Link to={"/Features/4"}>IDFEATURE2</Link>
+      <Outlet context={{ hello: "world" }} />
     </div>
   );
 }

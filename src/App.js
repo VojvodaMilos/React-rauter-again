@@ -5,6 +5,8 @@ import Navbar from "./components/Navbar";
 import Features from "./components/Features";
 import Pricing from "./components/Pricing";
 import Book from "./components/Book";
+import FeaturesId from "./components/FeaturesId";
+import NotFound from "./components/NotFound";
 
 // LINK VIDEA : https://www.youtube.com/watch?v=Ul3y1LXxzdU&t=19s
 
@@ -15,8 +17,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Pricing" element={<Pricing />} />
-        <Route path="/Features" element={<Features />} />
-        <Route path="/Features/:id" element={<Book />} />
+        <Route path="/Features" element={<Features />}>
+          {/* <Route index element={<Features />} /> */}
+          <Route path=":id" element={<Book />} />
+          <Route path="1" element={<FeaturesId />} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
